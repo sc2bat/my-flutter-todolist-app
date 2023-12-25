@@ -25,6 +25,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   id: 111,
                   title: _textController.text,
                   dateTime: DateTime.now().millisecondsSinceEpoch,
+                  isDone: false,
                 ),
               );
               if (mounted) {

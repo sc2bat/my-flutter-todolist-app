@@ -32,7 +32,23 @@ class _TodolistScreenState extends State<TodolistScreen> {
         // children: todolists
         children: todos.values
             .map(
-              (todo) => const TodoItemWidget(todo: todo),
+              (e) => TodoItemWidget(
+                todo: e,
+                onTapFunction: (todo) async {
+                  logger.info('qwerasdf ${e.isDone}');
+                  e.isDone = !e.isDone;
+                  await todo.save();
+                  logger.info('qwerasdf save');
+
+                  setState(() {
+                    logger.info('qwerasdf setstate');
+                  });
+                },
+                onTapDeleteFunction: (todo) async {
+                  await todo.delete();
+                  setState(() {});
+                },
+              ),
             )
             .toList(),
       ),

@@ -21,7 +21,8 @@ class TodoAdapter extends TypeAdapter<Todo> {
       title: fields[1] as String?,
       subtitle: fields[2] as String?,
       dateTime: fields[3] as int?,
-    )..isDone = fields[4] as bool?;
+      isDone: fields[4] as bool,
+    );
   }
 
   @override

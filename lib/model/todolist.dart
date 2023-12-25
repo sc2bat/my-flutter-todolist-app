@@ -16,14 +16,13 @@ class Todo extends HiveObject {
   @HiveField(3)
   int? dateTime;
   @HiveField(4)
-  bool? isDone;
-
+  bool isDone;
   Todo({
     required this.id,
     this.title,
     this.subtitle,
     this.dateTime,
-    this.isDone,
+    required this.isDone,
   });
 
   Todo copyWith({
@@ -58,7 +57,7 @@ class Todo extends HiveObject {
       title: map['title'] != null ? map['title'] as String : null,
       subtitle: map['subtitle'] != null ? map['subtitle'] as String : null,
       dateTime: map['dateTime'] != null ? map['dateTime'] as int : null,
-      isDone: map['isDone'] != null ? map['isDone'] as bool : null,
+      isDone: map['isDone'] as bool,
     );
   }
 
