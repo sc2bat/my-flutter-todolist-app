@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_todolist_app/main.dart';
+import 'package:my_flutter_todolist_app/todolist.dart';
 
 class CreateScreen extends StatefulWidget {
   const CreateScreen({super.key});
@@ -8,14 +10,24 @@ class CreateScreen extends StatefulWidget {
 }
 
 class _CreateScreenState extends State<CreateScreen> {
+  final _textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Write Todolist'),
+        title: const Text('Write Todolist'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              todos.add(
+                Todo(
+                  id: 111,
+                  title: _textController.text,
+                  dateTime: DateTime.now().millisecondsSinceEpoch,
+                ),
+              );
+            },
             icon: const Icon(Icons.done),
           ),
         ],
@@ -23,6 +35,7 @@ class _CreateScreenState extends State<CreateScreen> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: TextField(
+          controller: _textController,
           decoration: InputDecoration(
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
