@@ -16,7 +16,7 @@ class _TodolistScreenState extends State<TodolistScreen> {
     Todo(id: 3, title: 'title3', subtitle: 'subtitle3', dateTime: 20231215),
     Todo(id: 4, title: 'title4', subtitle: 'subtitle4', dateTime: 20231215),
     Todo(id: 5, title: 'title5', subtitle: 'subtitle5', dateTime: 20231215),
-    Todo(id: 6, title: 'title6', subtitle: 'subtitle6', dateTime: 20231215),
+    Todo(id: 6, title: 'title6', subtitle: 'subtitle6111', dateTime: 20231215),
   ];
 
   @override
