@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_todolist_app/main.dart';
-import 'package:my_flutter_todolist_app/todolist.dart';
+import 'package:my_flutter_todolist_app/model/todolist.dart';
 
 class CreateScreen extends StatefulWidget {
   const CreateScreen({super.key});
@@ -19,14 +19,17 @@ class _CreateScreenState extends State<CreateScreen> {
         title: const Text('Write Todolist'),
         actions: [
           IconButton(
-            onPressed: () {
-              todos.add(
+            onPressed: () async {
+              await todos.add(
                 Todo(
                   id: 111,
                   title: _textController.text,
                   dateTime: DateTime.now().millisecondsSinceEpoch,
                 ),
               );
+              if (mounted) {
+                Navigator.pop(context);
+              }
             },
             icon: const Icon(Icons.done),
           ),

@@ -15,11 +15,15 @@ class Todo extends HiveObject {
   String? subtitle;
   @HiveField(3)
   int? dateTime;
+  @HiveField(4)
+  bool? isDone;
+
   Todo({
     required this.id,
     this.title,
     this.subtitle,
     this.dateTime,
+    this.isDone,
   });
 
   Todo copyWith({
@@ -27,12 +31,14 @@ class Todo extends HiveObject {
     String? title,
     String? subtitle,
     int? dateTime,
+    bool? isDone,
   }) {
     return Todo(
       id: id ?? this.id,
       title: title ?? this.title,
       subtitle: subtitle ?? this.subtitle,
       dateTime: dateTime ?? this.dateTime,
+      isDone: isDone ?? this.isDone,
     );
   }
 
@@ -42,6 +48,7 @@ class Todo extends HiveObject {
       'title': title,
       'subtitle': subtitle,
       'dateTime': dateTime,
+      'isDone': isDone,
     };
   }
 
@@ -51,6 +58,7 @@ class Todo extends HiveObject {
       title: map['title'] != null ? map['title'] as String : null,
       subtitle: map['subtitle'] != null ? map['subtitle'] as String : null,
       dateTime: map['dateTime'] != null ? map['dateTime'] as int : null,
+      isDone: map['isDone'] != null ? map['isDone'] as bool : null,
     );
   }
 
@@ -61,7 +69,7 @@ class Todo extends HiveObject {
 
   @override
   String toString() {
-    return 'Todo(id: $id, title: $title, subtitle: $subtitle, dateTime: $dateTime)';
+    return 'Todo(id: $id, title: $title, subtitle: $subtitle, dateTime: $dateTime, isDone: $isDone)';
   }
 
   @override
@@ -71,11 +79,16 @@ class Todo extends HiveObject {
     return other.id == id &&
         other.title == title &&
         other.subtitle == subtitle &&
-        other.dateTime == dateTime;
+        other.dateTime == dateTime &&
+        other.isDone == isDone;
   }
 
   @override
   int get hashCode {
-    return id.hashCode ^ title.hashCode ^ subtitle.hashCode ^ dateTime.hashCode;
+    return id.hashCode ^
+        title.hashCode ^
+        subtitle.hashCode ^
+        dateTime.hashCode ^
+        isDone.hashCode;
   }
 }

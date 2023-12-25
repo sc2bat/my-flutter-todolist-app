@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_flutter_todolist_app/todolist.dart';
+import 'package:my_flutter_todolist_app/model/todolist.dart';
 
 import 'screen/todolist_screen.dart';
 

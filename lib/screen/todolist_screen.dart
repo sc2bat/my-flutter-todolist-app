@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_todolist_app/main.dart';
 import 'package:my_flutter_todolist_app/screen/create_screen.dart';
-import 'package:my_flutter_todolist_app/todolist.dart';
+
+import '../widget/todo_item_widget.dart';
 
 class TodolistScreen extends StatefulWidget {
   const TodolistScreen({super.key});
@@ -31,21 +32,19 @@ class _TodolistScreenState extends State<TodolistScreen> {
         // children: todolists
         children: todos.values
             .map(
-              (e) => ListTile(
-                title: Text(e.title ?? 'none'),
-                subtitle: Text(e.subtitle ?? 'none'),
-              ),
+              (todo) => const TodoItemWidget(todo: todo),
             )
             .toList(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
+        onPressed: () async {
+          await Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => const CreateScreen(),
             ),
           );
+          setState(() {});
         },
         child: const Icon(Icons.add),
       ),
