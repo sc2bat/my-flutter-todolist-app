@@ -1,10 +1,19 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-class Todo {
+import 'package:hive/hive.dart';
+
+part 'todolist.g.dart';
+
+@HiveType(typeId: 0)
+class Todo extends HiveObject {
+  @HiveField(0)
   int id;
+  @HiveField(1)
   String? title;
+  @HiveField(2)
   String? subtitle;
+  @HiveField(3)
   int? dateTime;
   Todo({
     required this.id,

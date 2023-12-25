@@ -24,7 +24,7 @@ class _TodolistScreenState extends State<TodolistScreen> {
     todolists.sort((a, b) => a.id.compareTo(b.id));
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todolist'),
+        title: const Text('Todolist'),
       ),
       body: ListView(
         children: todolists
