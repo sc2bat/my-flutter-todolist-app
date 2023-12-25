@@ -21,29 +21,20 @@ class _TodolistScreenState extends State<TodolistScreen> {
 
   @override
   Widget build(BuildContext context) {
+    todolists.sort((a, b) => a.id.compareTo(b.id));
     return Scaffold(
       appBar: AppBar(
         title: Text('Todolist'),
       ),
       body: ListView(
-        children: [
-          ListTile(
-            title: Text('title1'),
-            subtitle: Text('subtitle1'),
-          ),
-          ListTile(
-            title: Text('title1'),
-            subtitle: Text('subtitle1'),
-          ),
-          ListTile(
-            title: Text('title1'),
-            subtitle: Text('subtitle1'),
-          ),
-          ListTile(
-            title: Text('title1'),
-            subtitle: Text('subtitle1'),
-          ),
-        ],
+        children: todolists
+            .map(
+              (e) => ListTile(
+                title: Text(e.title ?? 'none'),
+                subtitle: Text(e.subtitle ?? 'none'),
+              ),
+            )
+            .toList(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
